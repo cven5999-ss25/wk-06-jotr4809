@@ -115,7 +115,7 @@ ggplot(data = generation_country_income,
                      color = income_id)) + 
   geom_boxplot(outlier.shape = NA) + 
   geom_jitter(width = 0.2, alpha = 0.75, size = 2) + 
-  scale_colour_brewer(type = "qual", palette = "Paired") + 
+  scale_colour_brewer(type = "qual", palette = 2) + 
   theme(legend.position = "none")
 ```
 
