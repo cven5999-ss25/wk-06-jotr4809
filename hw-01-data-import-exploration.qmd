@@ -1,8 +1,11 @@
 ---
 title: "Final Practice"
 subtitle: "Section 01"
+author: 
+  - name: "Jose Daniel Trujillo Sandoval"
 format:
   html:
+    toc: true
     embed-resources: true
 execute: 
   echo: true
@@ -37,7 +40,79 @@ The data that is used for these exercises are subsets of data from the [What a W
 
 2.  Describe the variables
 
+    City: Type character, has the names of the city
+
+    Country: Type Character, has the name of the country
+
+    Income_id: Type Character, Has the income level, High income, High medium income, Low medium income and low income
+
+    pop: Double, has the population of people
+
+    Generation per tons year: Double and is the genereation of the waste generation in tons in a year
+
+    From Waste treatment advanced to waterways: Are different percents of how they treat the waste
+
+    From composition waste to yard garden: Has the percent of composition of waste like glass, food organic, etc.
+
+    From transportation distance: Has the amount of total of KM for transportation, from the city, in km, km in a year and total km per day
+
 3.  Describe the observations
+
+    For the first 3 variables, each one has characters
+
+    For the rest of the variables all of the observations are double type. and have NA values that must be filtered
+
+    ```{r}
+    head(city_data)
+    dim(city_data)
+    glimpse(city_data)
+
+    city_data |> 
+      group_by(city) |> 
+      summarise(count = n())
+
+    city_data |> 
+      group_by(country) |> 
+      summarise(count = n())
+
+    city_data |> 
+      group_by(income_id) |> 
+      summarise(count = n())
+
+    city_data |> 
+      summarise(meanpop = mean(pop),
+                meangeneration = mean(msw_generation_tons_year),
+                meanadvance= mean(waste_treatment_advanced_thermal_treatment_percent),
+                meananaerobic = mean(waste_treatment_anaerobic_digestion_percent),
+                meancompost = mean(waste_treatment_compost_percent),
+                meancontrolled = mean(waste_treatment_controlled_landfill_percent),
+                meanincineration = mean(waste_treatment_incineration_percent),
+                meanlandfill = mean(waste_treatment_landfill_unspecified_percent),
+                meanopendump = mean(waste_treatment_open_dump_percent),
+                meanother = mean(waste_treatment_other_percent),
+                meanrecycling = mean(waste_treatment_recycling_percent),
+                meansanitary = mean(waste_treatment_sanitary_landfill_landfill_gas_system_percent),
+                meanunaccounted = mean(waste_treatment_unaccounted_for_percent),
+                meanwaterways = mean(waste_treatment_waterways_marine_percent))
+
+    city_data |> 
+      summarise(meancompfood= mean(composition_food_organic_waste_percent),
+                meancompglass = mean(composition_glass_percent),
+                meancompmetal = mean(composition_metal_percent),
+                meancompother = mean(composition_other_percent),
+                meancomppaper = mean(composition_paper_cardboard_percent),
+                meancompplastic = mean(composition_plastic_percent),
+                meancompruber = mean(composition_rubber_leather_percent),
+                meancompwood = mean(composition_wood_percent),
+                meancompyard = mean(composition_yard_garden_green_waste_percent))
+
+    city_data |> 
+      summarise(meantrans1 = mean(transportation_distance_from_city_center_to_main_landfill_or_dumpsite_km),
+                meantrans2 = mean(transportation_distance_km),
+                meantrans3 = mean(transportation_distance_km_year),
+                meantrans5 = mean(transportation_distance_total_km_day))
+      
+    ```
 
 # Task 1.2
 
@@ -62,7 +137,7 @@ city_data |>
 -   not transportation_distance_na
 
 ```{r}
-city_data |>
+city_data |> 
   select(city, income_id, contains("distance"), -transportation_distance_na)
 ```
 
