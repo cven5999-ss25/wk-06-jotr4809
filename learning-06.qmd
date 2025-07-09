@@ -13,15 +13,15 @@ Learning reflections are part of your weekly homework and have a weight of 20% o
 
 # Lecture
 
-<!--# Add your reflections on the lecture of this week here -->
+The part of the data frames for the left join was really easy to understand and gave me a wider idea of how to manage information and the way that we can work with multiples csv files. In order  to get more information about the same variables.
 
 # Homework Assignment
 
-<!--# Add your reflections on the homework programming assignment here -->
+The first 2 parts of the assignment were solve, so it was just going through each part of them, to see if there was something missing that was written in the instructions. The part 3 was easier than I expected, but the part 4 was a quite challenging because of the last part of making 4 chars into one
 
 # Readings
 
-<!--# Add your reflections on the required readings here -->
+The reading was more challenging to understand than usual, but very helpful, I also thing that it gave me a better idea of how SQL works
 
 # Submit learning reflections
 
